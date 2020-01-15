@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Axios from "axios";
 import MyProfile from "./components/MyProfile";
@@ -8,7 +7,7 @@ import Friends from "./components/Friends";
 class App extends React.Component {
   state = {
     me: [],
-    myFriends: [],
+    friends: [],
   };
 
   componentDidMount() {
@@ -26,7 +25,7 @@ class App extends React.Component {
     Axios.get("https://api.github.com/users/mphelps1978/followers")
       .then(res => {
         this.setState({
-          myFriends: res.data,
+          friends: res.data,
         });
         console.log(`Followers: `, res);
       })
@@ -39,8 +38,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h2>Me:</h2>
+          <h2>Welcome to my GitHub Story</h2>
           <MyProfile
+            key={this.state.me.id}
+            login={this.state.me.login}
+            name={this.state.me.name}
             aviurl={this.state.me.avatar_url}
             bio={this.state.me.bio}
             linkurl={this.state.me.html_url}
@@ -49,11 +51,7 @@ class App extends React.Component {
             following={this.state.me.following}
           />
           <h3>My Friends:</h3>
-          <Friends
-            name={this.state.myFriends.login}
-            aviurl={this.state.myFriends.avatar_url}
-            linkurl={this.state.myFriends.html_url}
-          />
+          <Friends key={this.state.friends.id} friends={this.state.friends} />
         </header>
       </div>
     );
