@@ -2,8 +2,7 @@
 
 import React from "react";
 import { Card, Icon, Image } from "semantic-ui-react";
-import Calendar from "react-github-contribution-calendar";
-import MyCalendar from "./MyCalendar";
+import GitHubCalendar from "react-github-calendar";
 import "../App.css";
 
 const MyProfile = props => {
@@ -18,6 +17,7 @@ const MyProfile = props => {
               <a href={props.linkurl} target="_blank">
                 {props.name}
               </a>
+              <Card.Meta>{props.login}</Card.Meta>
             </Card.Header>
             <Card.Meta>{props.repocount} Repos</Card.Meta>
             <Card.Description>{props.bio}</Card.Description>
@@ -30,8 +30,7 @@ const MyProfile = props => {
       </div>
       <div className="ghcontainer">
         <p>My Github Contributions</p>
-
-        <MyCalendar />
+        <GitHubCalendar username={props.login} />
       </div>
     </div>
   );
