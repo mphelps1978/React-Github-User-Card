@@ -35,3 +35,12 @@ h3 {
 .friends {
   margin-left: 10%;
 }
+
+.ghcontainer {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.ghcontainer p {
+  text-align: center;
+}
