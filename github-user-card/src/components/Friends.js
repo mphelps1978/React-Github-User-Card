@@ -18,7 +18,7 @@ const Friends = props => {
             </Card.Content>
             <Card.Content extra>
               <div className="ui two buttons">
-                <a href={friend.html_url}>
+                <a href={friend.html_url} target="_blank">
                   <Button basic color="green">
                     GitHub Profile
                   </Button>

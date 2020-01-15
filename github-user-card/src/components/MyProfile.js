@@ -15,7 +15,9 @@ const MyProfile = props => {
           <Image src={props.aviurl} wrapped ui={false} />
           <Card.Content>
             <Card.Header>
-              <a href={props.linkurl}>{props.name}</a>
+              <a href={props.linkurl} target="_blank">
+                {props.name}
+              </a>
             </Card.Header>
             <Card.Meta>{props.repocount} Repos</Card.Meta>
             <Card.Description>{props.bio}</Card.Description>
