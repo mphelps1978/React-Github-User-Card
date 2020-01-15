@@ -1,37 +1,24 @@
 import React from "react";
-import Calendar from "react-github-contribution-calendar";
+import CalendarHeatmap from "react-calendar-heatmap";
 
 function MyCalendar() {
-  var values = {};
-  var until = "2020-08-31";
-  var weekNames = ["s", "m", "t", "w", "t", "f", "s"];
-  var monthNames = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "11",
-    "12",
-  ];
-
   const style = {
     margin: `0 auto`,
-    paddingLeft: "31%",
+    width: `75%`,
   };
 
   return (
     <div style={style}>
-      <Calendar
-        values={values}
-        until={until}
-        weekNames={weekNames}
-        monthNames={monthNames}
+      <CalendarHeatmap
+        startDate={new Date("2019-01-01")}
+        endDate={new Date("2020-12-31")}
+        values={[
+          { date: "2019-01-01" },
+          { date: "2019-01-07" },
+          { date: "2019-01-14" },
+          { date: "2019-01-21" },
+          // ...and so on
+        ]}
       />
     </div>
   );
